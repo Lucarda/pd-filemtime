@@ -1,0 +1,33 @@
+#N canvas 379 77 837 538 12;
+#X obj 215 503 filemtime;
+#X msg 61 351 doit;
+#X msg 246 416 args -dir c:/foo -pattern *.pd -year 1999 -month 3 -day
+5;
+#X msg 268 452 args -dir . -pattern *.pd -year 1987;
+#X obj 219 224 openpanel 1;
+#X msg 219 251 args -dir \$1;
+#X obj 220 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 30 25 [filemtime] -- sets the "last modified time" of file(s).
+;
+#X text 78 166 select a folder and see the console;
+#X text 36 324 apply the changes;
+#X text 423 329 -year -month and -day if (any) is not supplied (any)
+gets overrided with current values of system time., f 50;
+#X text 418 109 The "doit" message apply the args changes to file(s).
+;
+#X text 416 166 -dir can be relative (to the patch) or absolute. escape
+"white sapace" with "\ " like "white\ space".;
+#X text 418 235 -pattern can be a filename or a search term with wildcards.
+, f 50;
+#X text 484 267 "*.pd" if not supplied.;
+#X text 491 292 files in all sub dirs are affected.;
+#X text 480 205 "./" if not supplied.;
+#X text 418 67 The "args" message sets the dir \, search pattern and
+date and prints args to the console., f 53;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 6 0 4 0;
